@@ -20,6 +20,7 @@ func main() {
 
 	// Routing
 	router.HandleFunc("/", controllers.Index).Methods("GET")
+	router.HandleFunc("/link", controllers.GetAllLink).Methods("GET")
 
 	// Serve Http Server
 	host := "0.0.0.0"
@@ -27,7 +28,7 @@ func main() {
 	if port == "" {
 		port = "3000"
 	}
-	fmt.Print("Application Running On ", host, ":", port)
+	fmt.Print("Application Running On", host, ":", port)
 	err := http.ListenAndServe(host+":"+port, router)
 	if err != nil {
 		log.Fatalln(err)

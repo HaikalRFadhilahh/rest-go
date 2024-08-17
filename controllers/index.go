@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"encoding/json"
 	"net/http"
 )
 
@@ -12,16 +11,9 @@ type Result struct {
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
-	// Return Json
-	Res := Result{
-		StatusCode: 200,
-		Status:     "success",
-		Message:    "RESTFull API With Go",
-	}
-	// Handle Error
-	err := json.NewEncoder(w).Encode(Res)
+	w.Header().Set("Content-Type", "text/html")
+	w.WriteHeader(http.StatusOK)
+	_, err := w.Write([]byte("Haik Shorterner Link With <b>Go</b>,See My Portofolio Web <a href='https://haik.my.id'>Here!</a>"))
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
