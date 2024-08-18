@@ -1,7 +1,7 @@
 package models
 
 type Links struct {
-	ID         int    `json:"id"`
+	ID         int    `json:"id,omitempty"`
 	Alias      string `json:"alias"`
 	Url        string `json:"url"`
 	Created_at string `json:"createdAt,omitempty"`

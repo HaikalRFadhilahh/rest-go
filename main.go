@@ -21,6 +21,8 @@ func main() {
 	// Routing
 	router.HandleFunc("/", controllers.Index).Methods("GET")
 	router.HandleFunc("/link", controllers.GetAllLink).Methods("GET")
+	router.HandleFunc("/{alias}", controllers.GoToUrl).Methods("GET")
+	router.HandleFunc("/add", controllers.AddLinks).Methods("POST")
 
 	// Serve Http Server
 	host := "0.0.0.0"
